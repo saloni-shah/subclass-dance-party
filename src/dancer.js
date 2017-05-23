@@ -32,14 +32,14 @@
 };
 */
 var MakeDancer = function(top, left, timeBetweenSteps) {
-  this.top = top;
-  this.left = left;
-  this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
+  this.step();
+  this.setPosition(top, left);
+  this.timeBetweenSteps = timeBetweenSteps;
 };
 
 MakeDancer.prototype.step = function(){
-  setTimeout(this.step, this.timeBetweenSteps);
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
 MakeDancer.prototype.setPosition = function(top, left){
@@ -49,7 +49,3 @@ MakeDancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
-
-var dancerObj = new MakeDancer();
-dancerObj.step();
-dancerObj.setPosition(dancerObj.top, dancerObj.left);
