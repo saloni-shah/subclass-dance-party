@@ -27,5 +27,12 @@ makeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
 makeBlinkyDancer.constructor = makeBlinkyDancer;
 makeBlinkyDancer.prototype.step = function(){
   this.oldStep();
-  this.$node.toggle();
+  //this.$node.toggle();
+};
+makeBlinkyDancer.prototype.lineup = function(top,left){
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
 };
